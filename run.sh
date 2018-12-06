@@ -12,7 +12,7 @@ for ROOT in "__norm" "__smote"
     do
         for CODE_SMELL in "cl-data-class" "cl-god-class" "ml-feature-envy" "ml-long-method"
             do
-                for METRIC in "acc" "f_score" "prec" "rec" "pct_dth"
+                for METRIC in "acc" "f_score" "pct_dth" "tpr" "tnr" "fpr" "fnr"
                 do
                     printf "\n-- ${CODE_SMELL} -- ${METRIC} --\n" >> ${ROOT}-r/ranks-by-smell.txt
                     cat ${ROOT}/${CODE_SMELL}/${CODE_SMELL}-${METRIC}.txt | python stats.py >> ${ROOT}-r/ranks-by-smell.txt
@@ -22,7 +22,7 @@ for ROOT in "__norm" "__smote"
 
 for ROOT in "__norm" "__smote"
     do
-        for METRIC in "acc" "f_score" "prec" "rec" "pct_dth"
+        for METRIC in "acc" "f_score" "pct_dth" "tpr" "tnr" "fpr" "fnr"
             do
             for CODE_SMELL in "cl-data-class" "cl-god-class" "ml-feature-envy" "ml-long-method"
                 do
